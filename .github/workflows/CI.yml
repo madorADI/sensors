@@ -44,7 +44,7 @@ jobs:
           path: sensorsimage.tar
   deploy:
     needs: build-docker
-    if: github.ref_name == 'main' && github.repository_owner == 'madorADI'
+    if: github.repository_owner == 'madorADI' #github.ref_name == 'main' && github.repository_owner == 'madorADI'
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH key

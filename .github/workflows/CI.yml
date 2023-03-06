@@ -48,12 +48,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH key
-        uses: kielabokkie/ssh-key-and-known-hosts-action@v1
+        uses: shimataro/ssh-key-action@v2
         with:
-          ssh-private-key: ${{ secrets.SSH_DEPLOY_PRIVATE_KEY }}
-          ssh-host: ${{ secrets.DEPLOY_IP }}
+          key: ${{ secrets.SSH_DEPLOY_PRIVATE_KEY }}
+          known_hosts: unnecessary
       - name: Add known hosts
-        run: ssh-keyscan -H ${{ secrets.DEPLOY_IP }} >> ~/.ssh/known_hosts
+        run: ssh-keyscan -vvv -H ${{ secrets.DEPLOY_IP }} >> ~/.ssh/known_hosts
       - uses: actions/download-artifact@v3
         with:
           name: sensors

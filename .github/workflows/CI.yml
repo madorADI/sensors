@@ -37,8 +37,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           tags: adi/sensors:latest
-      - name: Export image
-        run: docker save -o sensorsimage.tar adi/sensors:latest
+          output: type=docker,dest=sensorsimage.tar
       - uses: actions/upload-artifact@v3
         with:
           name: sensors

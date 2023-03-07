@@ -63,4 +63,4 @@ jobs:
       - name: Upload image to remote
         run: rsync -avz sensorsimage.tar ${{ secrets.SSH_DEPLOY_USER }}@${{ secrets.DEPLOY_IP }}:sensorsimage.tar
       - name: Start app
-        run: ssh ${{ secrets.SSH_DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "docker load -i sensorsimage.tar && docker rm -f sensors && docker run --name sensors -d sensors:latest"
+        run: ssh ${{ secrets.SSH_DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "docker load -i sensorsimage.tar && docker rm -f sensors && docker run --name sensors -d adi/sensors:latest"

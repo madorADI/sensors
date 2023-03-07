@@ -6,6 +6,22 @@ permissions:
   contents: read
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+          cache: pip
+      - name: Black
+        run: |
+          pip install black
+          black --check --diff .
+      - name: flake8
+        run: |
+          pip install flake8
+          flake8 --max-line-length 88 --ignore=E203 .
   test:
     runs-on: ${{matrix.os}}
     strategy:

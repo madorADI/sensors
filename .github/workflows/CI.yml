@@ -7,10 +7,8 @@ permissions:
 
 jobs:
   test:
-    if: false
     runs-on: ${{matrix.os}}
     strategy:
-      fail-fast: true
       matrix:
         python-version: ["3.7", "3.11", "pypy3.9"]
         os: [windows-latest, macos-latest, ubuntu-latest]
@@ -24,11 +22,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip -r requirements.txt || true
+          python -m pip -r requirements.txt
       - name: Run tests for ${{ matrix.python-version }}
-        run: python -m pytest -vv || true
+        run: python -m unittest -v
   build-docker:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Set up Docker Buildx
@@ -44,7 +42,7 @@ jobs:
           path: sensorsimage.tar
   deploy:
     needs: build-docker
-    if: github.repository_owner == 'madorADI' #github.ref_name == 'main' && github.repository_owner == 'madorADI'
+    if: github.ref_name == 'main' && github.repository_owner == 'madorADI'
     concurrency: production
     runs-on: ubuntu-latest
     steps:

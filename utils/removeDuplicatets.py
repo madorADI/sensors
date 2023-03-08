@@ -10,10 +10,11 @@ def removeDuplicates(dir):
         currHash = photohash.average_hash(path)
 
         for hash in hashes:
-            if photohash.hashes_are_similar(hash , currHash):
-                os.remove(path)
+            if img in os.listdir(dir):
+                if photohash.hashes_are_similar(hash , currHash):
+                    os.remove(path)
 
         if currHash not in hashes:
             hashes.add(currHash)
 
-removeDuplicates("C:/Users/u9092788/Desktop/images")
+# removeDuplicates("C:/Users/u9092788/Downloads/smaller_photos/new_photos")

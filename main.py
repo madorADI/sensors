@@ -1,11 +1,14 @@
-from classifier import *
-from ID_MODULES import *
-from license_palte_verifier import *
-from server import *
-from utils import *
+import video
+import psycopg2
+import cv2
+import json
+import threading
 def main():
-    print("Starting the server...")
-    server = Server()
-    server.start()
+    print("started the sensors system!")
+    ports = [99990,9991,9992,9993,9994,9995,9996,9997]
+    for port in ports:
+        t = threading.Thread(target=video.read_multicast, args=(port,))
+        t.start()
+
 if __name__ == '__main__':
     main()

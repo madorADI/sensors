@@ -68,8 +68,7 @@ def image_to_data(img, single=False, rtl=False):
 id = [{"id_number": "X", "first_name": "X", "last_name": "X", "birthdate": "X"}]
 
 
-def scan_id(picture_path):
-    image = cv2.imread(picture_path)
+def scan_id(image):
 
     # image[y:y+h, x:x+h]
     id_num_pic = image[94:118, 145:238]
@@ -95,4 +94,4 @@ def scan_id(picture_path):
         "birthdate": birthdate_data,
     }
 
-scan_id("some_ids/60004.jpg")
+# scan_id("some_ids/60004.jpg")

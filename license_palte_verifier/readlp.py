@@ -19,9 +19,9 @@ def isValidLicensePlate(img):
     print(imgString.replace(" ", "-"))
 
     if re.match("^[A-Za-z0-9 ]*$", imgString) and len(imgString) == 10:
-        return True
+        return imgString
     else:
-        return False
+        return ""
     
 
 

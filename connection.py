@@ -1,4 +1,3 @@
-
 import time 
 from cryptography.hazmat.backends import default_backend 
 from cryptography.hazmat.primitives import serialization 
@@ -28,11 +27,11 @@ salt_length=padding.PSS.MAX_LENGTH
     
     return full_msg
 
-def run_socket():
+def run_socket(data):
     UDP_IP = "10.200.3.12"
     server_id = "4"
     UDP_PORT = 8090
-    MESSAGE = json.dumps(json.load(open('./info.json'))).encode('utf8')
+    MESSAGE = data.encode('utf8')
     crypted_message = generate_full_message(MESSAGE, server_id)
     
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -40,4 +39,3 @@ def run_socket():
     print("UDP server up")
 
 run_socket()
-

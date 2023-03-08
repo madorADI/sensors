@@ -36,13 +36,11 @@ def getClassificationImg(img_classification):
     return "ID" if pickled_model.predict([prepare_img_for_model(img_classification)]) == [0.] else "License Plates"
 
 
-imgOrigin = cv2.imread(
-    "C:\\Users\\u9276439\\Desktop\\SensorsTeam\\inj\\40196.jpg")
+# imgOrigin = cv2.imread("C:\\Users\\u9276439\\Desktop\\SensorsTeam\\inj\\40196.jpg")
 
 # convert to GRAY SCALE
-imgGrayScale = cv2.cvtColor(imgOrigin, cv2.COLOR_RGB2GRAY)
 
-ans = getClassificationImg(imgGrayScale)
-print(ans)
+# ans = getClassificationImg(imgGrayScale)
+# print(ans)
 
 # if Id{} if LIC {}

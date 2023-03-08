@@ -2,7 +2,7 @@ import unittest
 from id_extractor import scan_id
 import os
 
-pictures = os.listdir(r"C:\Users\u9162190\Desktop\MODULES\some_ids")
+pictures = os.listdir(r"C:\Users\u9162190\Desktop\MODULES\some_ids") #FIXME: make not the folder:
 
 
 class test_id_extractor(unittest.TestCase):

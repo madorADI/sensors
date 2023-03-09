@@ -57,7 +57,7 @@ def image_to_data(img, single=False, rtl=False):
         r"--psm 3"#"  # tessedit_char_whitelist=0123456789אבגדהוזחטיכלמנסעפצקרשת"  # 3
     )
     pytesseract.pytesseract.tesseract_cmd = (
-        r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+        r"/bin/tesseract"
     )
     read = pytesseract.image_to_string(img, config=custom_config, lang="eng+heb")
     if rtl:

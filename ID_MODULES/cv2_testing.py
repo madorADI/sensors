@@ -60,7 +60,7 @@ cv2.imshow("5", out_binary)
 
 # configuring parameters for tesseract
 custom_config = r"--psm 3"  # 3
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r"/bin/tesseract"
 
 # now feeding image to tesseract
 details = pytesseract.image_to_data(

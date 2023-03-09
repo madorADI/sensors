@@ -4,7 +4,7 @@ import re
 import glob
 
 def isValidLicensePlate(img):
-    pytesseract.tesseract_cmd = r'C:/Users/u9092788/AppData/Local/Programs/Tesseract-OCR/tesseract.exe' #FIXME: change to tesseract path on the linux machine
+    pytesseract.tesseract_cmd = r'/bin/tesseract' #FIXME: change to tesseract path on the linux machine
     cropped = img[0:80, 12:150]
     denoised = cv2.fastNlMeansDenoising( cropped, None, 60, 5, 23)  
     denoised = cv2.cvtColor(denoised, cv2.COLOR_BGR2GRAY)
